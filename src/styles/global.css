@@ -1,0 +1,35 @@
+:root {
+  /* Colors*/
+  --color-primary: #0066c3;
+  --color-secondary: #d4e5f4;
+  --color-white: #ffffff;
+  --color-gray-100: #ebebeb;
+  --color-gray-200: #dadada;
+  --color-gray-300: #a09f9f;
+  --color-gray-400: #68686b;
+
+  /* Font sizes*/
+  --font-m: 1em;
+  --font-s: 0.9em;
+  --font-xs: 0.75em;
+
+  /* Radius */
+
+  --radius-m: 8px;
+  --redius-s: 4px;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-gray-400);
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 16px;
+}
+
+p.small {
+  font-size: var(--font-s);
+}
+
+p.xSmall {
+  font-size: var(--font-xs);
+}
