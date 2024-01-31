@@ -6,6 +6,7 @@
     "node": true
   },
   "rules": {
+    "no-empty": [true, "allow-empty-functions"],
     "no-console": 2,
     "no-warning-comments": [
       "error",
