@@ -1,0 +1,24 @@
+.buttonBase {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+}
+
+.primary {
+  composes: buttonBase;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.primary:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.secondary {
+  composes: buttonBase;
+  background-color: var(--color-secondary);
+  color: var(--color-gray-400);
+}

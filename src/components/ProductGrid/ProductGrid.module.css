@@ -1,5 +1,5 @@
 .gridContainer {
-  --row-height: 570px;
+  --row-height: 1fr;
   --table-gap: var(--space-md);
   display: grid;
   column-gap: var(--table-gap);
@@ -9,28 +9,27 @@
 
 .gridSizeZoomIn {
   --grid-columns: 4;
-  --column-width: minmax(auto, 287px);
+  --column-width: minmax(0, 1fr);
   grid-template-columns: repeat(var(--grid-columns), var(--column-width));
 }
 
 .gridSizeZoomOut {
   --grid-columns: 3;
-  --column-width: minmax(auto, 287px);
+  --column-width: minmax(0, 1fr);
   grid-template-columns: repeat(var(--grid-columns), var(--column-width));
 }
 
 @media screen and (max-width: 768px) {
   .gridSizeZoomIn {
     --grid-columns: 3;
-    --column-width: 1fr;
+    --column-width: minmax(0, 1fr);
   }
 
   .gridSizeZoomOut {
     --grid-columns: 2;
-    --column-width: 1fr;
+    --column-width: minmax(0, 1fr);
   }
   .gridContainer {
-    --row-height: 400px;
-    --table-gap: var(--space-xs);
+    --table-gap: var(--space-sm);
   }
 }

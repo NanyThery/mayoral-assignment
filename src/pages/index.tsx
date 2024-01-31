@@ -27,8 +27,6 @@ const HomePage: NextPage<HomeProps> = ({ data = [] }) => {
         isZoomEnabled={zoomIn}
       />
       {data.length > 0 ? <ProductGrid products={data} zoomIn={zoomIn} /> : 'no hay elementos'}{' '}
-      <p className="small">todo</p>
-      <p className="xSmall">este mas pequeño aun</p>
     </div>
   );
 };
