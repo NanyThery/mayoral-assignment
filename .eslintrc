@@ -5,6 +5,16 @@
     "jest": true,
     "node": true
   },
+  "rules": {
+    "no-console": 2,
+    "no-warning-comments": [
+      "error",
+      {
+        "terms": ["todo"]
+      }
+    ]
+  },
+
   "extends": [
     "eslint:recommended",
     "plugin:@next/next/recommended",
