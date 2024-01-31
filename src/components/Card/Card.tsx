@@ -1,9 +1,9 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './Card.module.css';
 import Image from 'next/image';
-import formatEuro from 'components/Utils/formatEuro';
-import calculateDifferencePercentage from 'components/Utils/calculateDifferencePercentage';
-import CustomButton from 'components/CustomButton/CustomButton';
+import formatEuro from '../Utils/formatEuro';
+import calculateDifferencePercentage from '../Utils/calculateDifferencePercentage';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 interface CardProps {
   product: Clothes;
@@ -35,7 +35,9 @@ export function Card({ product }: CardProps) {
         </div>
         <p className={styles.secondaryText}>{product.colors.length > 0 && moreColorsText}</p>
 
-        <CustomButton title={buttonText} onClick={() => {}} variant="primary" />
+        <CustomButton onClick={() => {}} variant="primary">
+          <p>{buttonText}</p>
+        </CustomButton>
       </div>
     </div>
   );
