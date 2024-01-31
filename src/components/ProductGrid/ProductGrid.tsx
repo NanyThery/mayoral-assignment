@@ -1,5 +1,6 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './ProductGrid.module.css';
+import { Card } from 'components/Card/Card';
 
 interface GridParams {
   products: Clothes[];
@@ -15,11 +16,7 @@ export function ProductGrid(params: GridParams) {
       data-testid="product-grid"
     >
       {params.products.map((product) => {
-        return (
-          <div key={product.id}>
-            <p style={{ whiteSpace: 'nowrap' }}>Here a card</p>
-          </div>
-        );
+        return <Card key={product.id} product={product} />;
       })}
     </div>
   );

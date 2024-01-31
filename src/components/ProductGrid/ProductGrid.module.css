@@ -1,25 +1,36 @@
 .gridContainer {
+  --row-height: 570px;
+  --table-gap: var(--space-md);
   display: grid;
-
-  grid-template-rows: auto;
+  column-gap: var(--table-gap);
+  row-gap: var(--table-gap);
+  grid-auto-rows: var(--row-height);
 }
 
 .gridSizeZoomIn {
   --grid-columns: 4;
-  grid-template-columns: repeat(var(--grid-columns), min-content);
+  --column-width: minmax(auto, 287px);
+  grid-template-columns: repeat(var(--grid-columns), var(--column-width));
 }
 
 .gridSizeZoomOut {
   --grid-columns: 3;
-  grid-template-columns: repeat(var(--grid-columns), min-content);
+  --column-width: minmax(auto, 287px);
+  grid-template-columns: repeat(var(--grid-columns), var(--column-width));
 }
 
 @media screen and (max-width: 768px) {
   .gridSizeZoomIn {
     --grid-columns: 3;
+    --column-width: 1fr;
   }
 
   .gridSizeZoomOut {
     --grid-columns: 2;
+    --column-width: 1fr;
+  }
+  .gridContainer {
+    --row-height: 400px;
+    --table-gap: var(--space-xs);
   }
 }
