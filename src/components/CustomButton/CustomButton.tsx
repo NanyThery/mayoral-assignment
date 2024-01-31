@@ -1,20 +1,20 @@
 import styles from './CustomButton.module.css';
 interface CustomButtonProps {
   onClick: () => void;
-  title: string;
   disabled?: boolean;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'neutral';
+  children?: React.ReactNode;
 }
 
 export default function CustomButton({
   onClick = () => {},
-  title,
   disabled,
+  children,
   variant = 'primary',
 }: CustomButtonProps) {
   return (
     <button className={`${styles[variant]}`} onClick={onClick} disabled={disabled}>
-      {title}
+      {children}
     </button>
   );
 }

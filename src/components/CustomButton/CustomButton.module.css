@@ -22,3 +22,22 @@
   background-color: var(--color-secondary);
   color: var(--color-gray-400);
 }
+
+.neutral {
+  composes: buttonBase;
+  background-color: var(--color-white);
+  color: var(--color-gray-400);
+}
+.neutral:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-400);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.neutral:disabled:hover {
+  background-color: transparent;
+  cursor: initial;
+}
+.neutral:disabled {
+  color: var(--color-gray-200);
+}
