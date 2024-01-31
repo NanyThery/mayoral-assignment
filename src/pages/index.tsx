@@ -1,4 +1,6 @@
+import Header from 'components/Header/Header';
 import { ProductGrid } from 'components/ProductGrid/ProductGrid';
+import SearchBar from 'components/SearchBar/SearchBar';
 import ZoomButtons from 'components/ZoomButtons/ZoomButtons';
 import { NextPage } from 'next';
 import { useState } from 'react';
@@ -15,17 +17,24 @@ interface HomeProps {
 
 const HomePage: NextPage<HomeProps> = ({ data = [] }) => {
   const [zoomIn, setZoomIn] = useState(true);
+
+  function handleSearch(value: string) {
+    console.log('searching', value);
+  }
   return (
     <div>
-      <ZoomButtons
-        onZoomIn={() => {
-          !zoomIn && setZoomIn(true);
-        }}
-        onZoomOut={() => {
-          zoomIn && setZoomIn(false);
-        }}
-        isZoomEnabled={zoomIn}
-      />
+      <Header>
+        <SearchBar onSearch={(value: string) => handleSearch(value)} />
+        <ZoomButtons
+          onZoomIn={() => {
+            !zoomIn && setZoomIn(true);
+          }}
+          onZoomOut={() => {
+            zoomIn && setZoomIn(false);
+          }}
+          isZoomEnabled={zoomIn}
+        />
+      </Header>
       {data.length > 0 ? <ProductGrid products={data} zoomIn={zoomIn} /> : 'no hay elementos'}{' '}
     </div>
   );
@@ -33,7 +42,6 @@ const HomePage: NextPage<HomeProps> = ({ data = [] }) => {
 
 export default HomePage;
 
-//TODO add typescript to this getStaticProps?
 export const getStaticProps = async () => {
   try {
     const res = await fetch(CLOTHES_URL);
