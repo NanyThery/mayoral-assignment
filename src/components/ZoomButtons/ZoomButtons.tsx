@@ -1,6 +1,8 @@
+import CustomButton from '../CustomButton/CustomButton';
+
 function PlusImage() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
     </svg>
   );
@@ -8,7 +10,7 @@ function PlusImage() {
 
 function MinusImage() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M0 9h24v6h-24z" />
     </svg>
   );
@@ -17,12 +19,12 @@ function MinusImage() {
 export default function ZoomButtons({ onZoomIn = () => {}, onZoomOut = () => {}, isZoomEnabled }) {
   return (
     <div>
-      <button onClick={onZoomIn} disabled={isZoomEnabled}>
+      <CustomButton onClick={onZoomIn} disabled={isZoomEnabled} variant="neutral">
         <PlusImage />
-      </button>
-      <button onClick={onZoomOut} disabled={!isZoomEnabled}>
+      </CustomButton>
+      <CustomButton onClick={onZoomOut} disabled={!isZoomEnabled} variant="neutral">
         <MinusImage />
-      </button>
+      </CustomButton>
     </div>
   );
 }
