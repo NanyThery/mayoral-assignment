@@ -1,6 +1,6 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './ProductGrid.module.css';
-import { Card } from 'components/Card/Card';
+import { Card } from '../../components/Card/Card';
 
 interface GridParams {
   products: Clothes[];
