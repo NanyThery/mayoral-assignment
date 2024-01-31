@@ -4,12 +4,7 @@
 const config = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        hostname: 'assets.mayoral.com',
-        pathname: '/images/',
-      },
-    ],
+    domains: ['assets.mayoral.com'],
   },
 };
 
