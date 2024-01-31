@@ -1,9 +1,9 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './Card.module.css';
 import Image from 'next/image';
-import formatEuro from '../Utils/formatEuro';
-import calculateDifferencePercentage from '../Utils/calculateDifferencePercentage';
-import CustomButton from '../../components/CustomButton/CustomButton';
+import formatEuro from '../../utils/formatEuro';
+import calculateDifferencePercentage from '../../utils/calculateDifferencePercentage';
+import CustomButton from '../UI/CustomButton/CustomButton';
 
 interface CardProps {
   product: Clothes;
