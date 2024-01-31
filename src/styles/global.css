@@ -9,6 +9,10 @@
   --color-gray-300: #a09f9f;
   --color-gray-400: #68686b;
 
+  /* Font family */
+
+  --font-primary: 'Maven Pro', sans-serif;
+
   /* Font sizes*/
   --text-base-size: 1em;
   --font-m: 1em;
@@ -17,7 +21,7 @@
 
   /* Radius */
 
-  --radius-md: 8px;
+  --radius-md: 10px;
   --radius-sm: 4px;
 
   /* Spacing */
@@ -42,7 +46,7 @@
 body {
   background-color: var(--color-white);
   color: var(--color-gray-400);
-  font-family: 'Maven Pro', sans-serif;
+  font-family: var(--font-primary);
   font-size: var(--text-base-size);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
