@@ -1,7 +1,13 @@
 import { PlusIcon, MinusIcon } from '../UI/Icons/Icons';
 import CustomButton from '../UI/CustomButton/CustomButton';
 
-export default function ZoomButtons({ onZoomIn = () => {}, onZoomOut = () => {}, isZoomEnabled }) {
+interface ZoomButtonsProps {
+  onZoomIn: () => void;
+  onZoomOut: () => void;
+  isZoomEnabled: boolean;
+}
+
+export default function ZoomButtons({ onZoomIn, onZoomOut, isZoomEnabled }: ZoomButtonsProps) {
   return (
     <div>
       <CustomButton onClick={onZoomOut} disabled={!isZoomEnabled} variant="neutral">
