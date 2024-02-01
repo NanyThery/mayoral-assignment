@@ -144,10 +144,18 @@
     "featuredImage": "https://assets.mayoral.com/images/t_auto_img,f_aut…polo-rayas-better-cotton-bebe-blue-stone-XL-4.jpg"
   },
   {
-    "id": 18,
+    "id": 19,
     "title": "This unique product for testing",
     "price": 15.99,
     "comparedPrice": 15.99,
+    "colors": [],
+    "featuredImage": "https://assets.mayoral.com/images/t_auto_img,f_aut…polo-rayas-better-cotton-bebe-blue-stone-XL-4.jpg"
+  },
+  {
+    "id": 18,
+    "title": "This product for testing with higher price",
+    "price": 16.99,
+    "comparedPrice": 20,
     "colors": [],
     "featuredImage": "https://assets.mayoral.com/images/t_auto_img,f_aut…polo-rayas-better-cotton-bebe-blue-stone-XL-4.jpg"
   }

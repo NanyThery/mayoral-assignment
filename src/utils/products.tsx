@@ -3,8 +3,6 @@ import calculateDifferencePercentage from './calculateDifferencePercentage';
 import { Clothes } from '../types/clothes.interface';
 
 const CLOTHES_URL = process.env.API_URL;
-// empty array: https://run.mocky.io/v3/a79c1856-7cd8-4ba3-884d-b0657b63ba76
-// clothes: 'https://run.mocky.io/v3/b4d26680-f43c-40f1-b54c-14668f104f60'
 
 export async function fetchProducts() {
   const res = await fetch(CLOTHES_URL);

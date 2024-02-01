@@ -1,18 +1,15 @@
-import { filterProducts, mapProducts, sortProducts } from './products';
+import { filterProducts, mapProducts, searchProducts, sortProducts } from './products';
 import products from '../mocks/products.json';
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(products),
+  }),
+);
 
 describe('mapProducts', () => {
   it('should correctly map product', () => {
-    const rawData = [
-      {
-        id: 1,
-        title: 'Polo banda Better Cotton chico',
-        price: 15.19,
-        comparedPrice: 18.99,
-        colors: ['azul', 'verde', 'rojo'],
-        featuredImage: 'http://someurl.com/image.jpg',
-      },
-    ];
+    const rawData = products;
 
     const mappedProducts = mapProducts(rawData);
 
@@ -103,5 +100,18 @@ describe('sortProducts', () => {
     expect(sortedProducts[0].title).toBe('Product B');
     expect(sortedProducts[1].title).toBe('Product A');
     expect(sortedProducts[2].title).toBe('Product C');
+  });
+});
+
+describe('searchProducts', () => {
+  it('should return filtered and sorted', async () => {
+    const queryParams = new URLSearchParams();
+    queryParams.set('query', 'testing');
+    queryParams.set('sort', 'priceDesc');
+
+    const products = await searchProducts(queryParams);
+
+    expect(products.length).toBe(2);
+    expect(products[0].title).toBe('This product for testing with higher price');
   });
 });
