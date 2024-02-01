@@ -7,7 +7,7 @@ interface CustomButtonProps {
 }
 
 export default function CustomButton({
-  onClick = () => {},
+  onClick,
   disabled,
   children,
   variant = 'primary',

@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import CustomButton from './CustomButton';
 
-//TODO apply typescript to jest
 describe('button on click must have been called', () => {
   it('should call onClick when clicked', () => {
     const mockedClick = jest.fn();

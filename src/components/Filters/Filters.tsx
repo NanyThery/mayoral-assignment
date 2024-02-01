@@ -2,7 +2,6 @@ import { useCallback, useState } from 'react';
 import useUpdateParams from '../../hooks/useUpdateParams';
 import { useDebouncedCallback } from 'use-debounce';
 import styles from './Filters.module.css';
-import { SortIcon } from '../UI/Icons/Icons';
 
 const filters = [
   {

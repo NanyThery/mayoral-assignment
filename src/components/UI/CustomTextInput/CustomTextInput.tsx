@@ -11,9 +11,8 @@ interface CustomTextInputProps {
 
 export default function CustomTextInput({
   value,
-  onChange = () => {},
+  onChange,
   placeholder,
-  label,
   disabled,
   icon,
 }: CustomTextInputProps) {
@@ -29,6 +28,7 @@ export default function CustomTextInput({
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
+        disabled={disabled}
       />
     </label>
   );
