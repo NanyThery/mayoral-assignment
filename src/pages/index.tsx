@@ -1,30 +1,23 @@
-import Header from 'components/Header/Header';
-import { ProductGrid } from 'components/ProductGrid/ProductGrid';
-import SearchBar from 'components/SearchBar/SearchBar';
-import ZoomButtons from 'components/ZoomButtons/ZoomButtons';
+import Header from '../components/Header/Header';
+import { ProductGrid } from '../components/ProductGrid/ProductGrid';
+import SearchBar from '../components/SearchBar/SearchBar';
+import ZoomButtons from '../components/ZoomButtons/ZoomButtons';
+import { fetchAllProducts, searchProducts } from '../helpers/products';
 import { NextPage } from 'next';
 import { useState } from 'react';
-import { Clothes } from 'types/clothes.interface';
-
-//TODO move this to a config file
-const CLOTHES_URL = 'https://run.mocky.io/v3/b4d26680-f43c-40f1-b54c-14668f104f60';
-// empty array: https://run.mocky.io/v3/a79c1856-7cd8-4ba3-884d-b0657b63ba76
-// clothes: 'https://run.mocky.io/v3/b4d26680-f43c-40f1-b54c-14668f104f60'
+import { Clothes } from '../types/clothes.interface';
 
 interface HomeProps {
-  data: Clothes[];
+  products: Clothes[];
 }
 
-const HomePage: NextPage<HomeProps> = ({ data = [] }) => {
+const HomePage: NextPage<HomeProps> = ({ products = [] }) => {
   const [zoomIn, setZoomIn] = useState(true);
 
-  function handleSearch(value: string) {
-    console.log('searching', value);
-  }
   return (
     <div>
       <Header>
-        <SearchBar onSearch={(value: string) => handleSearch(value)} />
+        <SearchBar />
         <ZoomButtons
           onZoomIn={() => {
             !zoomIn && setZoomIn(true);
@@ -35,20 +28,32 @@ const HomePage: NextPage<HomeProps> = ({ data = [] }) => {
           isZoomEnabled={zoomIn}
         />
       </Header>
-      {data.length > 0 ? <ProductGrid products={data} zoomIn={zoomIn} /> : 'no hay elementos'}{' '}
+      {products.length > 0 ? (
+        <ProductGrid products={products} zoomIn={zoomIn} />
+      ) : (
+        'no hay elementos'
+      )}{' '}
     </div>
   );
 };
 
 export default HomePage;
 
-export const getStaticProps = async () => {
-  try {
-    const res = await fetch(CLOTHES_URL);
-    const data = (await res.json()) as Clothes[];
+export const getServerSideProps = async (context) => {
+  const searchParams = new URLSearchParams(context.query);
 
-    return { props: { data } };
+  if (searchParams) {
+    try {
+      const products = await searchProducts(searchParams);
+      return { props: { products } };
+    } catch (e) {
+      return { props: { products: [] } };
+    }
+  }
+  try {
+    const products = await fetchAllProducts();
+    return { props: { products } };
   } catch (e) {
-    return { props: { data: [] } };
+    return { props: { products: [] } };
   }
 };
