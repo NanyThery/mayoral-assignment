@@ -2,7 +2,7 @@ import Header from '../components/Header/Header';
 import { ProductGrid } from '../components/ProductGrid/ProductGrid';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ZoomButtons from '../components/ZoomButtons/ZoomButtons';
-import { fetchAllProducts, searchProducts } from '../helpers/products';
+import { fetchAllProducts, searchProducts } from '../utils/products';
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { Clothes } from '../types/clothes.interface';
