@@ -3,7 +3,7 @@ import { ProductGrid } from '../components/ProductGrid/ProductGrid';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ZoomButtons from '../components/ZoomButtons/ZoomButtons';
 import { fetchAllProducts, searchProducts } from '../utils/products';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { useState } from 'react';
 import { Clothes } from '../types/clothes.interface';
 import Filters from '../components/Filters/Filters';
@@ -41,21 +41,16 @@ const HomePage: NextPage<HomeProps> = ({ products = [] }) => {
 
 export default HomePage;
 
-export const getServerSideProps = async (context) => {
-  const searchParams = new URLSearchParams(context.query);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const searchParams = context.query;
 
-  if (searchParams) {
-    try {
-      const products = await searchProducts(searchParams);
-      return { props: { products } };
-    } catch (e) {
-      return { props: { products: [] } };
-    }
-  }
   try {
-    const products = await fetchAllProducts();
+    const products = searchParams.toString()
+      ? await searchProducts(searchParams)
+      : await fetchAllProducts();
     return { props: { products } };
   } catch (e) {
+    // here we could log the error to an external service
     return { props: { products: [] } };
   }
 };

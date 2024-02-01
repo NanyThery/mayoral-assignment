@@ -1,6 +1,7 @@
 import formatEuro from './formatEuro';
 import calculateDifferencePercentage from './calculateDifferencePercentage';
 import { Clothes } from '../types/clothes.interface';
+import { ParsedUrlQuery } from 'querystring';
 
 const CLOTHES_URL = process.env.API_URL;
 
@@ -35,9 +36,9 @@ export async function fetchAllProducts(): Promise<Clothes[]> {
   return products;
 }
 
-export async function searchProducts(searchParams: URLSearchParams): Promise<Clothes[]> {
-  const query = searchParams.get('query');
-  const sort = searchParams.get('sort');
+export async function searchProducts(searchParams: ParsedUrlQuery): Promise<Clothes[]> {
+  const query = (searchParams?.query as string) || '';
+  const sort = (searchParams?.sort as string) || '';
 
   const rawProducts = await fetchProducts();
   const mappedProducts = mapProducts(rawProducts);
