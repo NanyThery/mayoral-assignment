@@ -6,6 +6,7 @@ import { fetchAllProducts, searchProducts } from '../utils/products';
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { Clothes } from '../types/clothes.interface';
+import Filters from '../components/Filters/Filters';
 
 interface HomeProps {
   products: Clothes[];
@@ -28,6 +29,7 @@ const HomePage: NextPage<HomeProps> = ({ products = [] }) => {
           isZoomEnabled={zoomIn}
         />
       </Header>
+      <Filters />
       {products.length > 0 ? (
         <ProductGrid products={products} zoomIn={zoomIn} />
       ) : (

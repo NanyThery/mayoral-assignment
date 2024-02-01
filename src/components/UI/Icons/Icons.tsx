@@ -1,4 +1,4 @@
-function PlusIcon() {
+function PlusIcon(): JSX.Element {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
@@ -6,14 +6,28 @@ function PlusIcon() {
   );
 }
 
-function MinusIcon() {
+function MinusIcon(): JSX.Element {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M0 9h24v6h-24z" />
     </svg>
   );
 }
-function SearchIcon() {
+
+function SortIcon(): JSX.Element {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M6 21l6-8h-4v-10h-4v10h-4l6 8zm16-12h-8v-2h8v2zm2-6h-10v2h10v-2zm-4 8h-6v2h6v-2zm-2 4h-4v2h4v-2zm-2 4h-2v2h2v-2z" />
+    </svg>
+  );
+}
+function SearchIcon(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,4 +41,4 @@ function SearchIcon() {
   );
 }
 
-export { PlusIcon, MinusIcon, SearchIcon };
+export { PlusIcon, MinusIcon, SearchIcon, SortIcon };
