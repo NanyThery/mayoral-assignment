@@ -2,7 +2,11 @@ export interface Clothes {
   id: number;
   title: string;
   price: number;
-  comparedPrice: number; //Price to show without discount
+  priceEur: string;
+  comparedPriceEur: string;
+  comparedPrice: number;
+  isReduced: boolean;
   colors: string[];
+  differencePercentage: string;
   featuredImage: string;
 }

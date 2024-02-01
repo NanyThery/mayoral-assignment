@@ -1,8 +1,7 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './Card.module.css';
 import Image from 'next/image';
-import formatEuro from '../../utils/formatEuro';
-import calculateDifferencePercentage from '../../utils/calculateDifferencePercentage';
+
 import CustomButton from '../UI/CustomButton/CustomButton';
 
 interface CardProps {
@@ -10,30 +9,37 @@ interface CardProps {
 }
 
 export function Card({ product }: CardProps) {
-  const showReduced = product.comparedPrice > product.price;
+  const {
+    isReduced,
+    title,
+    priceEur,
+    comparedPriceEur,
+    colors,
+    featuredImage,
+    differencePercentage,
+  } = product;
   const buttonText = 'AÑADIR';
   const moreColorsText = 'más colores';
 
   return (
     <div className={styles.container}>
       <div className={styles.imageWrapper}>
-        <Image className={styles.image} src={product.featuredImage} layout="fill"></Image>
+        <Image className={styles.image} src={featuredImage} layout="fill"></Image>
       </div>
       <div className={styles.infoWrapper}>
-        <p className={`small ${styles.productTitle}`}>{product.title}</p>
+        <p className={`small ${styles.productTitle}`}>{title}</p>
         <div className={styles.productPriceContainer}>
-          {showReduced && (
+          {isReduced && (
             <span className={`${styles.productPrice} ${styles.comparedPrice}`}>
-              {formatEuro(product.comparedPrice)}
+              {comparedPriceEur}
             </span>
           )}
-          <span className={`${styles.productPrice} ${showReduced && styles.productPriceReduced}`}>
-            {formatEuro(product.price)}
-            {showReduced &&
-              `(${calculateDifferencePercentage(product.price, product.comparedPrice)})`}
+          <span className={`${styles.productPrice} ${isReduced && styles.productPriceReduced}`}>
+            {priceEur}
+            {isReduced && `(${differencePercentage})`}
           </span>
         </div>
-        <p className={styles.secondaryText}>{product.colors.length > 0 && moreColorsText}</p>
+        <p className={styles.secondaryText}>{colors.length > 0 && moreColorsText}</p>
 
         <CustomButton onClick={() => {}} variant="primary">
           <p>{buttonText}</p>
