@@ -41,7 +41,7 @@ export function Card({ product }: CardProps) {
         </div>
         <p className={styles.secondaryText}>{colors.length > 0 && moreColorsText}</p>
 
-        <CustomButton onClick={() => {}} variant="primary">
+        <CustomButton onClick={() => undefined} variant="primary">
           <p>{buttonText}</p>
         </CustomButton>
       </div>
