@@ -60,6 +60,7 @@ export function sortProducts(products: Clothes[], sort: string) {
       return products.sort((a, b) => a.price - b.price);
     case 'priceDesc':
       return products.sort((a, b) => b.price - a.price);
+    case 'relevance':
     default:
       return products;
   }
