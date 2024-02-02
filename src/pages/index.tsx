@@ -34,7 +34,7 @@ const HomePage: NextPage<HomeProps> = ({ products = [] }) => {
         <ProductGrid products={products} zoomIn={zoomIn} />
       ) : (
         'no hay elementos'
-      )}{' '}
+      )}
     </div>
   );
 };
@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       : await fetchAllProducts();
     return { props: { products } };
   } catch (e) {
-    // here we could log the error to an external service
+    // here we should log the error to an external service but we return an empty array to avoid the app to crash and the user to see a 500 error
     return { props: { products: [] } };
   }
 };
