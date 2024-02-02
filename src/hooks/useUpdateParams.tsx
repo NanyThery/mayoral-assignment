@@ -19,13 +19,14 @@ export default function useUpdateParams() {
     const filteredParams = Object.fromEntries(
       Object.entries(updatedParams).filter(([, value]) => value !== '' && value !== null),
     );
+
     if (Object.keys(filteredParams).length === 0) {
       router.replace(pathname);
       return;
     }
 
     router.replace(
-      `${pathname}?${new URLSearchParams(updatedParams as Record<string, string>).toString()}`,
+      `${pathname}?${new URLSearchParams(filteredParams as Record<string, string>).toString()}`,
     );
   };
 
