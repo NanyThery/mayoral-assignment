@@ -19,7 +19,7 @@ const filters = [
 ];
 
 export default function Filters() {
-  const [selectedFilter, setSelectedFilter] = useState('priceAsc');
+  const [selectedFilter, setSelectedFilter] = useState('relevance');
 
   const { updateUrlParams } = useUpdateParams();
   const debouncedUpdateUrlParams = useDebouncedCallback(updateUrlParams, 300);
