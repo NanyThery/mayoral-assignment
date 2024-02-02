@@ -1,6 +1,7 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './ProductGrid.module.css';
 import { Card } from '../../components/Card/Card';
+import NoResults from './NoResults/NoResults';
 
 interface GridParams {
   products: Clothes[];
@@ -8,6 +9,9 @@ interface GridParams {
 }
 
 export function ProductGrid(params: GridParams) {
+  if (params.products.length === 0) {
+    return <NoResults />;
+  }
   return (
     <div
       className={`${styles.gridContainer} ${

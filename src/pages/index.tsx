@@ -30,11 +30,7 @@ const HomePage: NextPage<HomeProps> = ({ products = [] }) => {
         />
       </Header>
       <Filters />
-      {products.length > 0 ? (
-        <ProductGrid products={products} zoomIn={zoomIn} />
-      ) : (
-        'no hay elementos'
-      )}
+      <ProductGrid products={products} zoomIn={zoomIn} />
     </div>
   );
 };
