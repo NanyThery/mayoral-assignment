@@ -1,8 +1,7 @@
 import { Clothes } from 'types/clothes.interface';
 import styles from './Card.module.css';
-import Image from 'next/image';
-
 import CustomButton from '../UI/CustomButton/CustomButton';
+import ImageWithFallback from '../UI/ImageWithFallback/ImageWithFallback';
 
 interface CardProps {
   product: Clothes;
@@ -24,7 +23,7 @@ export function Card({ product }: CardProps) {
   return (
     <div className={styles.container}>
       <div className={styles.imageWrapper}>
-        <Image className={styles.image} src={featuredImage} layout="fill"></Image>
+        <ImageWithFallback className={styles.image} src={featuredImage} layout="fill" alt={title} />
       </div>
       <div className={styles.infoWrapper}>
         <p className={`small ${styles.productTitle}`}>{title}</p>
