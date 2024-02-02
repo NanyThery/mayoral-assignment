@@ -30,6 +30,8 @@ export default function useUpdateParams() {
   };
 
   return {
+    query: router.query?.query,
+    sort: router.query?.sort,
     updateUrlParams,
   };
 }
